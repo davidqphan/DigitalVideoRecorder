@@ -51,6 +51,10 @@ dependencies {
      * 3rd Party Libraries
      */
 
+    // Auto Value
+    implementation deps.autoValue
+    annotationProcessor deps.autoValueCompiler
+
     // Dependency Injection
     implementation deps.dagger.core
     annotationProcessor deps.dagger.compiler

@@ -29,7 +29,6 @@ buildscript {
             /**
              * 3rd Party Libraries
              */
-
             'autoValue'             : '1.6.2',
 
             // ReactiveX
