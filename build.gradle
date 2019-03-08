@@ -1,0 +1,166 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+
+    ext.versions = [
+            'minSdk'                : 21,
+            'compileSdk'            : 28,
+            'targetSdk'             : 28,
+
+            /**
+             * Android Jetpack Libraries
+             */
+            // Foundation
+            'appCompat'             : '1.0.0',
+
+            // Architecture Components
+            'archComp'              : '2.0.0',
+            'paging'                : '1.0.0',
+            'lifeCycle'             : '2.0.0',
+            'navigation'            : '2.0.0-rc02',
+            'navigationTest'        : '1.0.0-alpha08',
+
+            // Behavior
+
+            // UI
+            'materialDesign'        : '1.1.0-alpha01',
+            'constraintLayout'      : '1.1.3',
+
+            /**
+             * 3rd Party Libraries
+             */
+
+            'autoValue'             : '1.6.2',
+
+            // ReactiveX
+            'rxAndroid'             : '2.1.0',
+            'rxBinding'             : '2.1.1',
+
+            // Annotation Processing
+            'androidAnnotations'    : '1.0.0',
+
+            // Networking
+            'gson'                  : '2.8.5',
+            'okHttp'                : '3.11.0',
+            'retrofit'              : '2.4.0',
+            'retrofitRss'           : '0.1.0',
+
+            // Logging
+            'timber'                : '4.7.1',
+
+            // Dependency Injection
+            'dagger'                : '2.21',
+
+            // Memory Leak Detection
+            'leakCanary'            : '1.6.2',
+
+            // Image Loading
+            'glide'                 : '4.8.0',
+
+            // Miscellaneous
+            'sectionedRecyclerView' : '1.2.0',
+            'materialDialog'        : '2.0.3',
+
+            /**
+             * Testing Libraries
+             */
+            // JUnit
+            'jUnit'                 : '4.12',
+            'assertJ'               : '3.8.0',
+            'robolectric'           : '3.4.2',
+
+            // Mockito
+            'mockito'               : '1.9.5',
+            'mockitoAndroid'        : '2.8.9',
+            'dexmakerMockitoversion': '2.2.0',
+
+            // Espresso
+            'espresso'              : '3.1.0',
+            'runner'                : '1.1.0',
+    ]
+
+    ext.deps = [
+
+            androidAnnotations  : "androidx.annotation:annotation:${versions.androidAnnotations}",
+            appCompat           : "androidx.appcompat:appcompat:${versions.appCompat}",
+
+            constraintLayout    : "androidx.constraintlayout:constraintlayout:${versions.constraintLayout}",
+            recyclerView        : "androidx.recyclerview:recyclerview:${versions.appCompat}",
+            cardView            : "androidx.cardview:cardview:${versions.appCompat}",
+            materialDesign      : "com.google.android.material:material:${versions.materialDesign}",
+
+            'archComponents'    : [
+                    'lifeCycle'         : "androidx.lifecycle:lifecycle-extensions:${versions.lifeCycle}",
+                    'lifeCycleCompiler' : "androidx.lifecycle:lifecycle-compiler:${versions.lifeCycle}",
+                    'navigationFragment': "androidx.navigation:navigation-fragment:${versions.navigation}",
+                    'navigationUi'      : "androidx.navigation:navigation-ui:${versions.navigation}",
+            ],
+
+            'dagger'            : [
+                    'core'          : "com.google.dagger:dagger:${versions.dagger}",
+                    'compiler'      : "com.google.dagger:dagger-compiler:${versions.dagger}",
+                    'android'       : "com.google.dagger:dagger-android:${versions.dagger}",
+                    'androidSupport': "com.google.dagger:dagger-android-support:${versions.dagger}",
+                    'processor'     : "com.google.dagger:dagger-android-processor:${versions.dagger}"
+            ],
+
+            'autoValue'         : "com.google.auto.value:auto-value-annotations:${versions.autoValue}",
+            'autoValueCompiler' : "com.google.auto.value:auto-value:${versions.autoValue}",
+
+            timber              : "com.jakewharton.timber:timber:${versions.timber}",
+            leakCanaryDebug     : "com.squareup.leakcanary:leakcanary-android:${versions.leakCanary}",
+            leakCanaryRelease   : "com.squareup.leakcanary:leakcanary-android-no-op:${versions.leakCanary}",
+
+            rxAndroid           : "io.reactivex.rxjava2:rxandroid:${versions.rxAndroid}",
+            rxBinding           : "com.jakewharton.rxbinding2:rxbinding:${versions.rxBinding}",
+
+            gson                : "com.google.code.gson:gson:${versions.gson}",
+            okHttp              : "com.squareup.okhttp3:okhttp:${versions.okHttp}",
+            okHttpLogger        : "com.squareup.okhttp3:logging-interceptor:${versions.okHttp}",
+            retrofit            : "com.squareup.retrofit2:retrofit:${versions.retrofit}",
+            retrofitConverter   : "com.squareup.retrofit2:converter-gson:${versions.retrofit}",
+            retrofitAdapter     : "com.squareup.retrofit2:adapter-rxjava2:${versions.retrofit}",
+            retrofitRssConverter: "com.github.faruktoptas:RetrofitRssConverterFactory:${versions.retrofitRss}",
+
+            glide               : "com.github.bumptech.glide:glide:${versions.glide}",
+            glideCompiler       : "com.github.bumptech.glide:compiler:${versions.glide}",
+
+            materialDialog      : "com.afollestad.material-dialogs:core:${versions.materialDialog}",
+
+            'test'              : [
+                    junit          : "junit:junit:${versions.jUnit}",
+                    assertj        : "org.assertj:assertj-core:${versions.assertJ}",
+                    mockitoAndroid : "org.mockito:mockito-android:${versions.mockitoAndroid}",
+                    espressoCore   : "androidx.test.espresso:espresso-core:${versions.espresso}",
+                    espressoIntents: "androidx.test.espresso:espresso-intents:${versions.espresso}",
+                    espressoContrib: "androidx.test.espresso:espresso-contrib:${versions.espresso}",
+                    androidRunner  : "androidx.test:runner:${versions.runner}",
+                    androidRules   : "androidx.test:rules:${versions.runner}",
+                    navigationTest : "android.arch.navigation:navigation-testing:${versions.navigationTest}"
+            ],
+    ]
+
+    repositories {
+        google()
+        jcenter()
+
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.3.2'
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.0.0-rc02"
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url "https://jitpack.io" }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

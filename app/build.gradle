@@ -1,0 +1,88 @@
+apply plugin: 'com.android.application'
+apply plugin: "androidx.navigation.safeargs"
+
+def versionMajor = 1
+def versionMinor = 0
+def versionPatch = 0
+def versionBuild = 0
+
+android {
+
+    compileSdkVersion versions.compileSdk
+
+    defaultConfig {
+        applicationId "com.davidphan.digitalvideorecorder"
+
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+
+        versionCode versionMajor * 10000 + versionMinor * 1000 + versionPatch * 100 + versionBuild
+        versionName "${versionMajor}.${versionMinor}.${versionPatch}"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation deps.appCompat
+    implementation deps.constraintLayout
+
+    implementation deps.archComponents.lifeCycle
+    annotationProcessor deps.archComponents.lifeCycleCompiler
+
+    implementation deps.archComponents.navigationFragment
+    implementation deps.archComponents.navigationUi
+
+    /**
+     * 3rd Party Libraries
+     */
+
+    // Dependency Injection
+    implementation deps.dagger.core
+    annotationProcessor deps.dagger.compiler
+
+    implementation deps.dagger.android
+    implementation deps.dagger.androidSupport
+    annotationProcessor deps.dagger.processor
+
+    // Logging
+    implementation deps.timber
+    implementation deps.materialDialog
+
+    // Image Loading
+    implementation deps.glide
+    annotationProcessor deps.glideCompiler
+
+    // Networking
+    implementation deps.gson
+    implementation deps.okHttp
+    implementation deps.okHttpLogger
+    implementation deps.retrofit
+    implementation deps.retrofitConverter
+    implementation deps.retrofitAdapter
+
+    // Testing Libraries
+    testImplementation deps.test.junit
+    androidTestImplementation deps.test.androidRunner
+
+    androidTestImplementation deps.test.espressoCore
+    androidTestImplementation deps.test.espressoIntents
+    androidTestImplementation deps.test.espressoContrib
+
+    androidTestImplementation deps.test.navigationTest
+
+}
