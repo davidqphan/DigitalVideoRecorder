@@ -3,15 +3,13 @@ package com.davidphan.digitalvideorecorder.injection.module;
 import android.app.Application;
 import android.content.Context;
 
-import com.davidphan.digitalvideorecorder.ui.main.MainActivityComponent;
-
 import javax.inject.Singleton;
 
 import dagger.Module;
 import dagger.Provides;
 
-@Module(subcomponents = {
-        MainActivityComponent.class
+@Module(includes = {
+        RemoteModule.class
 })
 public class AppModule {
 

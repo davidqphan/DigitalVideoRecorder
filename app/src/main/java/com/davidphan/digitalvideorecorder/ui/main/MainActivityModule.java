@@ -13,5 +13,5 @@ public class MainActivityModule {
     String provideSillyString() {
         return "Silly";
     }
-    
+
 }

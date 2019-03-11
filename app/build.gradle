@@ -78,6 +78,10 @@ dependencies {
     implementation deps.retrofit
     implementation deps.retrofitConverter
     implementation deps.retrofitAdapter
+    implementation deps.mockWebServer
+
+    implementation deps.autoValueGson
+    annotationProcessor deps.autoValueGsonCompiler
 
     // Testing Libraries
     testImplementation deps.test.junit

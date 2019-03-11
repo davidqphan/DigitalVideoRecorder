@@ -1,7 +1,10 @@
 package com.davidphan.digitalvideorecorder.data.remote;
 
 import com.davidphan.digitalvideorecorder.data.model.Program;
+import com.davidphan.digitalvideorecorder.data.model.Question;
 import com.davidphan.digitalvideorecorder.data.model.Recording;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Response;
@@ -12,9 +15,12 @@ import retrofit2.http.Query;
 
 public interface ProgramService {
 
+    @GET("questions")
+    Call<List<Question>> listQuestions();
+
     // HTTP GET /programs?channel_number=1
     @GET("programs")
-    Call<Program> listProgramsForChannel(@Query("channel_number") String channelNumber);
+    Call<List<Program>> listProgramsForChannel(@Query("channel_number") String channelNumber);
 
     // TODO return a Response that either returns Recording or RecordingFailure
     // HTTP POST /recording?channel_number=1&program_id=1234

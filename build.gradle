@@ -30,6 +30,7 @@ buildscript {
              * 3rd Party Libraries
              */
             'autoValue'             : '1.6.2',
+            'autoValueGson': '1.0.0',
 
             // ReactiveX
             'rxAndroid'             : '2.1.0',
@@ -42,7 +43,7 @@ buildscript {
             'gson'                  : '2.8.5',
             'okHttp'                : '3.11.0',
             'retrofit'              : '2.4.0',
-            'retrofitRss'           : '0.1.0',
+            'mockWebServer'         : '3.13.1',
 
             // Logging
             'timber'                : '4.7.1',
@@ -80,22 +81,22 @@ buildscript {
 
     ext.deps = [
 
-            androidAnnotations  : "androidx.annotation:annotation:${versions.androidAnnotations}",
-            appCompat           : "androidx.appcompat:appcompat:${versions.appCompat}",
+            androidAnnotations : "androidx.annotation:annotation:${versions.androidAnnotations}",
+            appCompat          : "androidx.appcompat:appcompat:${versions.appCompat}",
 
-            constraintLayout    : "androidx.constraintlayout:constraintlayout:${versions.constraintLayout}",
-            recyclerView        : "androidx.recyclerview:recyclerview:${versions.appCompat}",
-            cardView            : "androidx.cardview:cardview:${versions.appCompat}",
-            materialDesign      : "com.google.android.material:material:${versions.materialDesign}",
+            constraintLayout   : "androidx.constraintlayout:constraintlayout:${versions.constraintLayout}",
+            recyclerView       : "androidx.recyclerview:recyclerview:${versions.appCompat}",
+            cardView           : "androidx.cardview:cardview:${versions.appCompat}",
+            materialDesign     : "com.google.android.material:material:${versions.materialDesign}",
 
-            'archComponents'    : [
+            'archComponents'   : [
                     'lifeCycle'         : "androidx.lifecycle:lifecycle-extensions:${versions.lifeCycle}",
                     'lifeCycleCompiler' : "androidx.lifecycle:lifecycle-compiler:${versions.lifeCycle}",
                     'navigationFragment': "androidx.navigation:navigation-fragment:${versions.navigation}",
                     'navigationUi'      : "androidx.navigation:navigation-ui:${versions.navigation}",
             ],
 
-            'dagger'            : [
+            'dagger'           : [
                     'core'          : "com.google.dagger:dagger:${versions.dagger}",
                     'compiler'      : "com.google.dagger:dagger-compiler:${versions.dagger}",
                     'android'       : "com.google.dagger:dagger-android:${versions.dagger}",
@@ -103,30 +104,33 @@ buildscript {
                     'processor'     : "com.google.dagger:dagger-android-processor:${versions.dagger}"
             ],
 
-            'autoValue'         : "com.google.auto.value:auto-value-annotations:${versions.autoValue}",
-            'autoValueCompiler' : "com.google.auto.value:auto-value:${versions.autoValue}",
+            'autoValue'        : "com.google.auto.value:auto-value-annotations:${versions.autoValue}",
+            'autoValueCompiler': "com.google.auto.value:auto-value:${versions.autoValue}",
 
-            timber              : "com.jakewharton.timber:timber:${versions.timber}",
-            leakCanaryDebug     : "com.squareup.leakcanary:leakcanary-android:${versions.leakCanary}",
-            leakCanaryRelease   : "com.squareup.leakcanary:leakcanary-android-no-op:${versions.leakCanary}",
+            'autoValueGson': "com.ryanharter.auto.value:auto-value-gson-runtime:${versions.autoValueGson}",
+            'autoValueGsonCompiler': "com.ryanharter.auto.value:auto-value-gson:${versions.autoValueGson}",
 
-            rxAndroid           : "io.reactivex.rxjava2:rxandroid:${versions.rxAndroid}",
-            rxBinding           : "com.jakewharton.rxbinding2:rxbinding:${versions.rxBinding}",
+            timber             : "com.jakewharton.timber:timber:${versions.timber}",
+            leakCanaryDebug    : "com.squareup.leakcanary:leakcanary-android:${versions.leakCanary}",
+            leakCanaryRelease  : "com.squareup.leakcanary:leakcanary-android-no-op:${versions.leakCanary}",
 
-            gson                : "com.google.code.gson:gson:${versions.gson}",
-            okHttp              : "com.squareup.okhttp3:okhttp:${versions.okHttp}",
-            okHttpLogger        : "com.squareup.okhttp3:logging-interceptor:${versions.okHttp}",
-            retrofit            : "com.squareup.retrofit2:retrofit:${versions.retrofit}",
-            retrofitConverter   : "com.squareup.retrofit2:converter-gson:${versions.retrofit}",
-            retrofitAdapter     : "com.squareup.retrofit2:adapter-rxjava2:${versions.retrofit}",
-            retrofitRssConverter: "com.github.faruktoptas:RetrofitRssConverterFactory:${versions.retrofitRss}",
+            rxAndroid          : "io.reactivex.rxjava2:rxandroid:${versions.rxAndroid}",
+            rxBinding          : "com.jakewharton.rxbinding2:rxbinding:${versions.rxBinding}",
 
-            glide               : "com.github.bumptech.glide:glide:${versions.glide}",
-            glideCompiler       : "com.github.bumptech.glide:compiler:${versions.glide}",
+            gson               : "com.google.code.gson:gson:${versions.gson}",
+            okHttp             : "com.squareup.okhttp3:okhttp:${versions.okHttp}",
+            okHttpLogger       : "com.squareup.okhttp3:logging-interceptor:${versions.okHttp}",
+            retrofit           : "com.squareup.retrofit2:retrofit:${versions.retrofit}",
+            retrofitConverter  : "com.squareup.retrofit2:converter-gson:${versions.retrofit}",
+            retrofitAdapter    : "com.squareup.retrofit2:adapter-rxjava2:${versions.retrofit}",
+            mockWebServer      : "com.squareup.okhttp3:mockwebserver:${versions.mockWebServer}",
 
-            materialDialog      : "com.afollestad.material-dialogs:core:${versions.materialDialog}",
+            glide              : "com.github.bumptech.glide:glide:${versions.glide}",
+            glideCompiler      : "com.github.bumptech.glide:compiler:${versions.glide}",
 
-            'test'              : [
+            materialDialog     : "com.afollestad.material-dialogs:core:${versions.materialDialog}",
+
+            'test'             : [
                     junit          : "junit:junit:${versions.jUnit}",
                     assertj        : "org.assertj:assertj-core:${versions.assertJ}",
                     mockitoAndroid : "org.mockito:mockito-android:${versions.mockitoAndroid}",

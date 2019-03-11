@@ -3,8 +3,10 @@ package com.davidphan.digitalvideorecorder.injection;
 import android.app.Application;
 
 import com.davidphan.digitalvideorecorder.DVRApplication;
+import com.davidphan.digitalvideorecorder.data.remote.ProgramService;
 import com.davidphan.digitalvideorecorder.injection.module.ActivityBuilderModule;
 import com.davidphan.digitalvideorecorder.injection.module.AppModule;
+import com.davidphan.digitalvideorecorder.injection.module.RemoteModule;
 
 import dagger.BindsInstance;
 import dagger.Component;
@@ -16,9 +18,9 @@ import dagger.android.AndroidInjectionModule;
  */
 
 @Component(modules = {
+        AndroidInjectionModule.class,
         AppModule.class,
         ActivityBuilderModule.class,
-        AndroidInjectionModule.class,
 })
 public interface ApplicationComponent {
 
